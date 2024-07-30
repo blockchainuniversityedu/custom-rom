@@ -10,3 +10,5 @@ Alternative Solution #1: Use Visual Studio Code, and download Android libraries 
 Alternative Solution #2: Using the JBOD method (Just A Bunch of Disks), combine two complementary SSD volumes together to allow for 1 TB of storage access for AOSP library installation, and aim to upgrade current PC storage in the meantime.
 
 Update #3: It will be necessary to add a feature where the decentralized ROM will encrypt the root of the phone's device tree with SHA-256 encryption, as using older methods such as MD5 could pose risks with a hash collission. SHA-256 will also allow for quick access to cryptocurrency mining, as well the use of smart contracts if dApps end up getting integrated early on in development.
+
+Update #4: Another major feature of the custom ROM, will be that its kernel can make use of the hard drives device blocks to mine for ChiaCoin while also attempting to save energy life, since hard drive currency mining is now a thing.
