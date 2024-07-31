@@ -12,3 +12,7 @@ Alternative Solution #2: Using the JBOD method (Just A Bunch of Disks), combine 
 Update #3: It will be necessary to add a feature where the decentralized ROM will encrypt the root of the phone's device tree with SHA-256 encryption, as using older methods such as MD5 could pose risks with a hash collission. SHA-256 will also allow for quick access to cryptocurrency mining, as well the use of smart contracts if dApps end up getting integrated early on in development.
 
 Update #4: Another major feature of the decetralized ROM, will be that its custom-built kernel will be able to make use of the phones device blocks (via built-in hard drive) to mine for ChiaCoin. This could possibly improve or even save energy life for older or recent phones, since hard drive currency mining is now a thing.
+
+Update #5: The first alternative solution will be used for likely programming a custom dApp that serves of great purpose to the blockchain ROM. In the meantime, a new name has been given to the custom ROM which will be DiCentra ROM. After doing some troubleshooting, the AOSP installation comes either in 'Full' or 'Minimal', and there are existing Blockchain SDKs, so the best path to take here is to perform a minimal repo sync via command:
+repo init -u https://android.googlesource.com/platform/manifest -b master -m minimal.xml
+To perform a minimal AOSP build, the minimal.xml was created in the same directory as the SSD responsible for the project. File can be found in git repository.
