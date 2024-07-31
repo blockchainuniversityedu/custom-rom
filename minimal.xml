@@ -1,0 +1,14 @@
+<manifest>
+  <remote name="aosp" fetch="https://android.googlesource.com/" />
+  <default revision="master" remote="aosp" sync-j="4" />
+  
+  <!-- Core System -->
+  <project path="system/core" name="platform/system/core" />
+  <project path="system/sepolicy" name="platform/system/sepolicy" />
+  
+  <!-- Framework -->
+  <project path="frameworks/base" name="platform/frameworks/base" />
+  
+  <!-- HALs -->
+  <project path="hardware/interfaces" name="platform/hardware/interfaces" />
+</manifest>
