@@ -25,14 +25,22 @@ sudo apt-get install openjdk-11-jdk git-core gnupg flex bison gperf \
     lib32z-dev ccache libgl1-mesa-dev libxml2-utils xsltproc unzip m4
 
 // Installing Repo Tool //
+
 mkdir ~/bin
+
 curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+
 chmod a+x ~/bin/repo
+
 export PATH=~/bin:$PATH
 
 // Adding Repo Tool to your PATH //
+
 echo 'export PATH=~/bin:$PATH' >> ~/.bashrc
+
 source ~/.bashrc
+
+// Initializing and Installing AOSP Repository //
 
 cd /mnt/(drive letter) - For external space
 
