@@ -16,7 +16,9 @@ Update #4: Another major feature of the decetralized ROM, will be that its custo
 Update #5: The first alternative solution will be used for likely programming a custom dApp that serves of great purpose to the blockchain ROM. In the meantime, a new name has been given to the custom ROM which will be DiCentra ROM. After doing some troubleshooting, the AOSP installation comes either in 'Full - 12 Parallel Jobs' or 'Minimal - 4 Parallel Jobs', and there are existing Blockchain SDKs, so the best path to take here is to perform a minimal repo sync via command:
 
 cd /mnt/(drive letter) - For external space
+
 repo init -u https://android.googlesource.com/platform/manifest -b master --depth=1
+
 repo sync --no-clone-bundle --no-tags --optimized-fetch --prune -j4
 
 Sidenote: "4 parallel jobs" refers to the number of simultaneous processes or threads used to perform a task
