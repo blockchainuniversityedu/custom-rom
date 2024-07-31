@@ -19,4 +19,6 @@ cd /mnt/(drive letter) - For external space
 repo init -u https://android.googlesource.com/platform/manifest -b master --depth=1
 repo sync --no-clone-bundle --no-tags --optimized-fetch --prune -j4
 
+Sidenote: "4 parallel jobs" refers to the number of simultaneous processes or threads used to perform a task
+
 To perform a minimal AOSP build, the minimal.xml was created in the same directory as the SSD responsible for the project. File can be found in git repository.
