@@ -61,3 +61,43 @@ repo sync --no-clone-bundle --no-tags --optimized-fetch --prune -j4
 Sidenote: "4 parallel jobs" refers to the number of simultaneous processes or threads used to perform a task
 
 To perform a minimal AOSP build, the minimal.xml was created in the same directory as the SSD responsible for the project. File can be found in git repository.
+
+Update #6: The lineageOS repository has been installed, and will temporarily replace further developments with AOSP until a testable version of the custom ROM has been built and optimized for the Samsung Galaxy J4 phone architecture. The commands to initiate this process is as follows:
+
+// Create directory for lineageOS //
+
+mkdir /mnt/(drive letter)/lineageos
+
+cd /mnt/(drive letter)/lineageos
+
+// Download and Initialize Repository
+curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+
+chmod a+x ~/bin/repo
+
+repo init -u https://github.com/LineageOS/android.git -b lineage-18.1
+
+// Sync The Repository //
+
+repo sync --no-clone-bundle --no-tags --optimized-fetch --prune -j4
+
+// Clone the device tree, kernel, and vendor repositories for the Galaxy J4 //
+
+git clone https://github.com/LineageOS/android_device_samsung_j4lte device/samsung/j4lte
+
+git clone https://github.com/LineageOS/android_kernel_samsung_j4lte kernel/samsung/j4lte
+
+git clone https://github.com/TheMuppets/proprietary_vendor_samsung_j4lte vendor/samsung/j4lte
+
+
+// Source The Environment Setup //
+
+source build/envsetup.sh
+
+// Select Target Device //
+
+lunch lineage_j4lte-userdebug
+
+// Build ROM, flash it to device once finished //
+
+make -j4 bacon
