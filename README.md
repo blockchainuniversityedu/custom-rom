@@ -102,3 +102,5 @@ lunch lineage_j4lte-userdebug
 // Build ROM, flash it to device once finished //
 
 make -j4 bacon
+
+**UPDATE #7**: Both the AOSP and lineageOS repositories have been installed with minor errors with synchronizing some libraries. The next step is to fix the configuration errors under lineageOS when it comes to setting up a compatible Samsung Galaxy J4 directory under 'devices'. The best way to begin with this approach is to assign the <manufacturer> variable which in this case is 'samsung'
