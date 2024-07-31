@@ -14,6 +14,9 @@ Update #3: It will be necessary to add a feature where the decentralized ROM wil
 Update #4: Another major feature of the decetralized ROM, will be that its custom-built kernel will be able to make use of the phones device blocks (via built-in hard drive) to mine for ChiaCoin. This could possibly improve or even save energy life for older or recent phones, since hard drive currency mining is now a thing.
 
 Update #5: The first alternative solution will be used for likely programming a custom dApp that serves of great purpose to the blockchain ROM. In the meantime, a new name has been given to the custom ROM which will be DiCentra ROM. After doing some troubleshooting, the AOSP installation comes either in 'Full - 12 Parallel Jobs' or 'Minimal - 4 Parallel Jobs', and there are existing Blockchain SDKs, so the best path to take here is to perform a minimal repo sync via command:
-repo init -u https://android.googlesource.com/platform/manifest -b master -m minimal.xml
+
+cd /mnt/(drive letter) - For external space
+repo init -u https://android.googlesource.com/platform/manifest -b master --depth=1
+repo sync --no-clone-bundle --no-tags --optimized-fetch --prune -j4
 
 To perform a minimal AOSP build, the minimal.xml was created in the same directory as the SSD responsible for the project. File can be found in git repository.
