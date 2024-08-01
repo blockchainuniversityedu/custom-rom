@@ -90,7 +90,7 @@ source build/envsetup.sh
 Sidenote: A lunch combo is simply a command written in the 'AndroidProducts.mk' file of the downloaded repository, in order to locate the correct target device build that will be debugged for the custom ROM.
 
 // Select Target Device //
-Sidenote: Make sure that 'omni_j4lte-userdebug' and 'omni_j4lte-userdebug' are commands include in files 'AndroidProducts.mk', 'device.mk' in both the device/samsung/j4lte/ and /build/target/products folder.
+Sidenote: Make sure that 'omni_j4lte-userdebug' and 'omni_j4lte-userdebug' are lunch commands included in files 'AndroidProducts.mk', 'device.mk, and 'vendorsetup.sh' in both the device/samsung/j4lte/ and /build/target/products folder. For the 'envsetup.sh' file, automatically it's given restricted permissions so use commands 'cd <folder directory>/AOSP/build/target/' and 'nano envsetup.sh' to edit files.
 
 lunch omni_j4lte-userdebug
 
