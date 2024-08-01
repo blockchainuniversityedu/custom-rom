@@ -82,13 +82,23 @@ repo init -u https://github.com/LineageOS/android.git -b lineage-18.1
 
 repo sync --no-clone-bundle --no-tags --optimized-fetch --prune -j4
 
+// SSH Key Configurations //
+As of August 13th, 2021, GitHub no longer allows password authenticated git clones for repositories from the website. In order to solve this issue, you essentially need to administer your own SSH key via Ubuntu terminal and add it to your GitHub account under the 'SSH and GPG' keys section in 'Settings'. The following are the EXEMPLARY commands to make this happen, as I will obviously not share my private SSH key.
+
+ssh-keygen -t rsa -b 4096 -c "(include your GitHub email here)"
+
+eval "$(ssh-agent -s)"
+
+ssh-add ~/.ssh/id_rsa
+
+cat ~/.ssh/id_rsa.pub --> (From here just copy the SSH key that was generated and link it to your GitHub account)
+
 // Clone the device tree, kernel, and vendor repositories for the Galaxy J4 //
+Sidenote: This section initially had repositories provided by lineageOS, but the custom ROM no longer supports this device, hence why you must access its device tree files via the repository offered by TeamWin which you can find a link to below.
 
-git clone https://github.com/LineageOS/android_device_samsung_j4lte device/samsung/j4lte
+git clone git@github.com:TeamWin/android_device_samsung_j4lte.git
 
-git clone https://github.com/LineageOS/android_kernel_samsung_j4lte kernel/samsung/j4lte
-
-git clone https://github.com/TheMuppets/proprietary_vendor_samsung_j4lte vendor/samsung/j4lte
+// Before You Build The Setup //
 
 
 // Source The Environment Setup //
@@ -97,10 +107,12 @@ source build/envsetup.sh
 
 // Select Target Device //
 
-lunch lineage_j4lte-userdebug
+lunch omni_j4lte-userdebug
 
 // Build ROM, flash it to device once finished //
 
 make -j4 bacon
 
 **UPDATE #7**: Both the AOSP and lineageOS repositories have been installed with minor errors with synchronizing some libraries. The next step is to fix the configuration errors under lineageOS when it comes to setting up a compatible Samsung Galaxy J4 directory under 'devices'. The best way to begin with this approach is to assign the <manufacturer> variable which in this case is 'samsung'
+
+**UPDATE #8**: The code above for the Galaxy J4 configurations have been updated to no longer make use of lineageOS repositories since as of now they don't exist.
