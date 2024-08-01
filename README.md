@@ -65,11 +65,11 @@ To perform a minimal AOSP build, the minimal.xml was created in the same directo
 
 **UPDATE #6**: The lineageOS repository has been installed, and will temporarily replace further developments with AOSP until a testable version of the custom ROM has been built and optimized for the Samsung Galaxy J4 phone architecture. The commands to initiate this process is as follows:
 
-// Create directory for lineageOS //
+// Create directory for custom-rom //
 
-mkdir /mnt/(drive letter)/lineageos
+mkdir /mnt/(drive letter)/(name folder whatever you like)
 
-cd /mnt/(drive letter)/lineageos
+cd /mnt/(drive letter)/(name folder whatever you like)
 
 // Download and Initialize Repository
 curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
@@ -97,9 +97,6 @@ cat ~/.ssh/id_rsa.pub --> (From here just copy the SSH key that was generated an
 Sidenote: This section initially had repositories provided by lineageOS, but the custom ROM no longer supports this device, hence why you must access its device tree files via the repository offered by TeamWin which you can find a link to below.
 
 git clone git@github.com:TeamWin/android_device_samsung_j4lte.git
-
-// Before You Build The Setup //
-
 
 // Source The Environment Setup //
 
