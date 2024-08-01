@@ -39,13 +39,11 @@ chmod a+x ~/bin/repo
 
 export PATH=~/bin:$PATH
 
-
 // Adding Repo Tool to your PATH //
 
 echo 'export PATH=~/bin:$PATH' >> ~/.bashrc
 
 source ~/.bashrc
-
 
 // Initializing and Installing AOSP Repository //
 
@@ -61,26 +59,9 @@ repo sync --no-clone-bundle --no-tags --optimized-fetch --prune -j4
 
 Sidenote: "4 parallel jobs" refers to the number of simultaneous processes or threads used to perform a task
 
-To perform a minimal AOSP build, the minimal.xml was created in the same directory as the SSD responsible for the project. File can be found in git repository.
+// Downloading the Samsung Galaxy J4 Device Tree - 2 METHODS //
 
-**UPDATE #6**: The lineageOS repository has been installed, and will temporarily replace further developments with AOSP until a testable version of the custom ROM has been built and optimized for the Samsung Galaxy J4 phone architecture. The commands to initiate this process is as follows:
-
-// Create directory for custom-rom //
-
-mkdir /mnt/(drive letter)/(name folder whatever you like)
-
-cd /mnt/(drive letter)/(name folder whatever you like)
-
-// Download and Initialize Repository
-curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
-
-chmod a+x ~/bin/repo
-
-repo init -u https://github.com/LineageOS/android.git -b lineage-18.1
-
-// Sync The Repository //
-
-repo sync --no-clone-bundle --no-tags --optimized-fetch --prune -j4
+METHOD 1: Via Command Line
 
 // SSH Key Configurations //
 As of August 13th, 2021, GitHub no longer allows password authenticated git clones for repositories from the website. In order to solve this issue, you essentially need to administer your own SSH key via Ubuntu terminal and add it to your GitHub account under the 'SSH and GPG' keys section in 'Settings'. The following are the EXEMPLARY commands to make this happen, as I will obviously not share my private SSH key.
@@ -98,9 +79,15 @@ Sidenote: This section initially had repositories provided by lineageOS, but the
 
 git clone git@github.com:TeamWin/android_device_samsung_j4lte.git
 
+METHOD 2: Download, copy and paste
+Visit the HTTPS linke (https://github.com/TeamWin/android_device_samsung_j4lte.git) and download the ZIP file in a matter of seconds. Once finished, enter the aosp folder, go to <device>, create a new folder named 'samsung', and inside of it another folder with the codename of the device tree linked above 'j4lte'. Once finished, extract the contents of the downloaded ZIP folder under the NORMAL extract files option once right clicked, as 7-Zip gives an error when extracting the folder.
+
 // Source The Environment Setup //
 
 source build/envsetup.sh
+
+// Creating the correct lunch combos //
+Sidenote: A lunch combo is simply a command written in the 'AndroidProducts.mk' file of the downloaded repository, in order to locate the correct target device build that will be debugged for the custom ROM.
 
 // Select Target Device //
 
