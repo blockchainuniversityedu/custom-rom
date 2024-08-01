@@ -120,3 +120,5 @@ make -j$(nproc)
 **UPDATE #8**: The ROM build command produced the following error via command line which will get fixed:
 
 make[1]: *** No rule to make target 'main.c', needed by 'main.o'.  Stop.
+
+Once finalized, ROM build files will be uploaded to repository for testing.
