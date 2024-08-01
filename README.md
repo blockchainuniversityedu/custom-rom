@@ -90,12 +90,28 @@ source build/envsetup.sh
 Sidenote: A lunch combo is simply a command written in the 'AndroidProducts.mk' file of the downloaded repository, in order to locate the correct target device build that will be debugged for the custom ROM.
 
 // Select Target Device //
+Sidenote: Make sure that 'omni_j4lte-userdebug' and 'omni_j4lte-userdebug' are commands include in files 'AndroidProducts.mk', 'device.mk' in both the device/samsung/j4lte/ and /build/target/products folder.
 
 lunch omni_j4lte-userdebug
 
-// Build ROM, flash it to device once finished //
+// Building ROMs and Administering Makefiles //
+Sienote: Sometimes, Makefiles are not typically installed into the ~/aosp directory, so it would be best to cover some basic commands for this before executing the AOSP build. The commands are as follows (credit: https://askubuntu.com/questions/103348/error-when-installing-makefile-make-no-targets-specified-and-no-makefile):
 
-make -j4 bacon
+sudo apt install autoconf automake libpcre3-dev libnl-3-dev libsqlite3-dev libssl-dev ethtool build-essential g++ libnl-genl-3-dev libgcrypt20-dev libtool python3-distutils
+
+sudo apt install -y pkg-config
+
+sudo autoreconf -i
+
+sudo ./configure --with-experimental --with-ext-scripts
+
+sudo make
+
+sudo make install
+
+// Build The ROM, flash over to rooted Android device or use an emulator //
+
+make 
 
 **UPDATE #7**: Both the AOSP and lineageOS repositories have been installed with minor errors with synchronizing some libraries. The next step is to fix the configuration errors under lineageOS when it comes to setting up a compatible Samsung Galaxy J4 directory under 'devices'. The best way to begin with this approach is to assign the <manufacturer> variable which in this case is 'samsung'
 
