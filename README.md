@@ -113,6 +113,6 @@ sudo make install
 
 make 
 
-**UPDATE #7**: Both the AOSP and lineageOS repositories have been installed with minor errors with synchronizing some libraries. The next step is to fix the configuration errors under lineageOS when it comes to setting up a compatible Samsung Galaxy J4 directory under 'devices'. The best way to begin with this approach is to assign the <manufacturer> variable which in this case is 'samsung'
+**UPDATE #6**: Both the AOSP and lineageOS repositories have been installed with minor errors with synchronizing some libraries. The next step is to fix the configuration errors under lineageOS when it comes to setting up a compatible Samsung Galaxy J4 directory under 'devices'. The best way to begin with this approach is to assign the <manufacturer> variable which in this case is 'samsung'
 
-**UPDATE #8**: The code above for the Galaxy J4 configurations have been updated to no longer make use of lineageOS repositories since as of now they don't exist.
+**UPDATE #7**: The general guide to running correct commands for installing and building the custom AOSP ROM has been completed for those who want to assist with development, as welcomed. Previously, lineageOS was going to be the early testing stage for dicentra-rom, but unfortunately due to missing repositories on behalf of the organization, the TeamWin repo was helped with building the custom ROM. What's next is to begin the initial blueprints of what's necessary for building dicentra-rom.
