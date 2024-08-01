@@ -94,7 +94,7 @@ Sidenote: Make sure that 'omni_j4lte-userdebug' and 'omni_j4lte-userdebug' are c
 
 lunch omni_j4lte-userdebug
 
-// Building ROMs and Administering Makefiles //
+// Administering Makefiles //
 Sienote: Sometimes, Makefiles are not typically installed into the ~/aosp directory, so it would be best to cover some basic commands for this before executing the AOSP build. The commands are as follows (credit: https://askubuntu.com/questions/103348/error-when-installing-makefile-make-no-targets-specified-and-no-makefile):
 
 sudo apt install autoconf automake libpcre3-dev libnl-3-dev libsqlite3-dev libssl-dev ethtool build-essential g++ libnl-genl-3-dev libgcrypt20-dev libtool python3-distutils
@@ -111,8 +111,12 @@ sudo make install
 
 // Build The ROM, flash over to rooted Android device or use an emulator //
 
-make 
+make -j$(nproc)
 
 **UPDATE #6**: Both the AOSP and lineageOS repositories have been installed with minor errors with synchronizing some libraries. The next step is to fix the configuration errors under lineageOS when it comes to setting up a compatible Samsung Galaxy J4 directory under 'devices'. The best way to begin with this approach is to assign the <manufacturer> variable which in this case is 'samsung'
 
 **UPDATE #7**: The general guide to running correct commands for installing and building the custom AOSP ROM has been completed for those who want to assist with development, as welcomed. Previously, lineageOS was going to be the early testing stage for dicentra-rom, but unfortunately due to missing repositories on behalf of the organization, the TeamWin repo was helped with building the custom ROM. What's next is to begin the initial blueprints of what's necessary for building dicentra-rom.
+
+**UPDATE #8**: The ROM build command produced the following error via command line which will get fixed:
+
+make[1]: *** No rule to make target 'main.c', needed by 'main.o'.  Stop.
