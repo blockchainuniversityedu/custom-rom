@@ -238,4 +238,11 @@ int main() {
 
 **UPDATE #13**: After repeating the 'lunch omni_j4lte-userdebug' command a multitude of times, it became evident that the command itself more or less refers to an outdated, open source project called OmniROM which might not necessarily speak for phones past the Galaxy J4. As the processor for the J4, the Exynos 7570, works with ARM64, I've changed the lunch combo to more recognizable with that command in order to avoid further errors.
 
-**UPDATE #14**: The ASOP build unfortunately keeps failing because there are specific commits that have not been made, which result in repo sync failures that should eventually be fixed.
+**UPDATE #14**: [THE PREBUILTS ERROR]
+
+The ASOP build unfortunately keeps failing because there are specific commits that have not been made, which result in repo sync failures that should eventually be fixed. After having typed the 'repo status' commands, a large multitude of directories appeared with no branch assigned to them. The main directory responsible for these errors is '/prebuilts/vndk/v33', for which the following commands can be assigned to commit all unassigned branches:
+
+repo status
+(path) cd /prebuilts/vndk/v33
+git add (listed and missing directories after repo status)
+
