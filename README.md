@@ -92,7 +92,7 @@ Sidenote: A lunch combo is simply a command written in the 'AndroidProducts.mk' 
 // Select Target Device //
 Sidenote: Make sure that 'omni_j4lte-userdebug' and 'omni_j4lte-userdebug' are lunch commands included in files 'AndroidProducts.mk', 'device.mk, and 'vendorsetup.sh' in both the device/samsung/j4lte/ and /build/target/products folder. For the 'envsetup.sh' file, automatically it's given restricted permissions so use commands 'cd <folder directory>/AOSP/build/target/' and 'nano envsetup.sh' to edit files.
 
-lunch omni_j4lte-userdebug
+lunch aosp_arm64-eng
 
 // Administering Makefiles //
 Sienote: Sometimes, Makefiles are not typically installed into the ~/aosp directory, so it would be best to cover some basic commands for this before executing the AOSP build. The commands are as follows (credit: https://askubuntu.com/questions/103348/error-when-installing-makefile-make-no-targets-specified-and-no-makefile):
@@ -204,3 +204,5 @@ int main() {
 **UPDATE #11**: According to a Telegram group chat responsible for jailbreaking the Samsung Galaxy J4, GSI (Generic System Image) ROMs are available to be compatible with the smartphone device. If the minimal AOSP build is not capable of building the ROM, I will most likely have to download a GSI ROM for a separate set of devices available via (https://developer.android.com/topic/generic-system-image), and simply edit its contents to eventually develop features that will make up of DiCentra ROM. Once the features are solidified, I will simply have to edit the contents of the 'device/j4lte' folder in order to make sure that the modified GSI ROM will be able to flash over to the emulator for further testing within LOWER END devices. Part of the challenge will be to make sure that the modified GSI ROM will be compliant with the settings of the Samsung Galaxy J4.
 
 **UPDATE #12**: After doing some searching, I discovered a forum that supported AOSP with GSI ROMs functioning under Android 9 Pie, which is the popular version of OS found in most Galaxy J4 devices if not for the earliest version, Android 8 Oreo. This XDA forum provides the ZIP file for the needed build files that would've inititally been replaced by the 'make -j$(nproc)' command. I have updated the steps above in order to correct build a compatible ROM under the TWRP-GalaxyJ4 kernel provided.
+
+**UPDATE #13**: After repeating the 'lunch omni_j4lte-userdebug' command a multitude of times, it became evident that the command itself more or less refers to an outdated, open source project called OmniROM which might not necessarily speak for phones past the Galaxy J4. As the processor for the J4, the Exynos 7570, works with ARM64, I've changed the lunch combo to more recognizable with that command in order to avoid further errors. 
