@@ -122,3 +122,66 @@ make -j$(nproc)
 make[1]: *** No rule to make target 'main.c', needed by 'main.o'.  Stop.
 
 Once finalized, ROM build files will be uploaded to repository for testing.
+
+**UPDATE #9**: The problem with the Makefiles have been solved, and the solution was as follows.
+
+Under the 'Makefile.am' file, add the following pieces of code:
+
+bin_PROGRAMS = main
+
+main_SOURCES = main.c
+
+
+You should also run these commands to automatically generate any other missing files:
+
+sudo apt-get install automake
+
+automake --add-missing
+
+automake --version
+
+If running make -j$(nproc) gives this error 'make[1]: *** No rule to make target 'main.c', needed by 'main.o'.  Stop.', you simply need to add this code snippet inot the 'Makefile' file.
+
+make.o: main.c
+
+    gcc -c main.c -o main.o
+
+Since automake won't necessarily generate all necessarily missing files, the few to keep to create in the root of the directory are also foo.c, bar.h, and main.c. The code for each file snippet are as follows:
+
+foo.c :
+
+#include <stdio.h>
+
+int main() {
+
+    printf("Hello, World!\n");
+    
+    return 0;
+    
+}
+
+bar.h :
+
+#ifndef BAR_H
+
+#define BAR_H
+
+
+// Add your declarations here
+
+#endif /* BAR_H */
+
+main.c :
+
+#include <stdio.h>
+
+int main() {
+
+    printf("Hello from main!\n");
+    
+    return 0;
+    
+}
+
+**UPDATE #10**: Despite all errors being fixed regarding the Makefiles, the lunch and build commands are not seemingly generating the system images that are needed, despite having the device tree files set in place. This might have to do with an error regarding the minimal AOSP build.
+
