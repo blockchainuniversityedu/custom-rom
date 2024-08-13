@@ -94,7 +94,7 @@ Sidenote: Make sure that 'omni_j4lte-userdebug' and 'omni_j4lte-userdebug' are l
 
 lunch aosp_arm64-eng
 
-// Administering Makefiles //
+// Administering Makefiles // [OPTIONAL]
 Sienote: Sometimes, Makefiles are not typically installed into the ~/aosp directory, so it would be best to cover some basic commands for this before executing the AOSP build. The commands are as follows (credit: https://askubuntu.com/questions/103348/error-when-installing-makefile-make-no-targets-specified-and-no-makefile):
 
 sudo apt install autoconf automake libpcre3-dev libnl-3-dev libsqlite3-dev libssl-dev ethtool build-essential g++ libnl-genl-3-dev libgcrypt20-dev libtool python3-distutils
@@ -124,6 +124,37 @@ Source Page: https://xdaforums.com/t/aosp-9-0-2019-08-25-phh-treble.3831915/
 chmod +x build.sh build-rom.sh
 
 ./build.sh
+
+// FIXING BRANCH CHANGES //
+
+As the build is getting fetched and setup, there might be some checkout errors regarding specific kernels. To avoid this from getting in the way, you can discard the changes, commit them, or stash them. Here are the specific codes for the three.
+
+Option 1 (Commit Changes) --Recommended-- :
+
+git add .
+
+git commit -m "Commit message describing your changes"
+
+git checkout branch-name
+
+
+Option 2 (Stash Changes):
+
+git stash
+
+git checkout branch-name
+
+# If you want to apply the stashed changes later
+
+git stash pop
+
+Option 3 (Discard Changes):
+
+git reset --hard
+
+git checkout branch-name
+
+// Build final ROM //
 
 ./build-rom.sh
 
