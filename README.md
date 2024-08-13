@@ -235,7 +235,7 @@ int main() {
 
 The ASOP build unfortunately keeps failing because there are specific commits that have not been made, which result in repo sync failures that should eventually be fixed. After having typed the 'repo status' commands, a large multitude of directories appeared with no branch assigned to them. The main directory responsible for these errors is '/prebuilts/vndk/v33', for which the following commands can be assigned to commit all unassigned branches:
 
+cd ~/(AOSP folder)
 repo status
-(path) cd /prebuilts/vndk/v33
-git add (listed and missing directories after repo status)
-
+cd /prebuilts/vndk/v33
+git add (one of listed and missing directories seen under repo status)
