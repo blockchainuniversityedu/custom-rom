@@ -183,5 +183,5 @@ int main() {
     
 }
 
-**UPDATE #10**: Despite all errors being fixed regarding the Makefiles, the lunch and build commands are not seemingly generating the system images that are needed, despite having the device tree files set in place. This might have to do with an error regarding the minimal AOSP build. The 'make -j4' function is seemingly supposed to generate the '/out' folder which includes the system.imng and boot.img files. These do not appear seemingly.
+**UPDATE #10**: Despite all errors being fixed regarding the Makefiles, the lunch and build commands are not seemingly generating the system images that are needed, despite having the device tree files set in place. This might have to do with an error regarding the minimal AOSP build. The 'make -j4' function is seemingly supposed to generate the '/out' folder which includes the system.imng and boot.img files. These do not appear seemingly. Worst case scenario, a full AOSP build might be needed to make everything fully functional, as writing commands such as 'make help' aren't remotely able to showcase what's possible missing from the directory.
 
