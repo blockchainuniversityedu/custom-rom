@@ -109,9 +109,25 @@ sudo make
 
 sudo make install
 
+PLEASE CUT TO **UPDATE #9** in order to make further modifications to Makefiles for a ROM build process without error.
+
+// Downloaded Android 9 AOSP zip folder //
+
+Download Location: https://github.com/phhusson/treble_experimentations/releases/tag/v119
+
+Extract the contents of the ZIP folder, and transfer it over to the root of the AOSP project.
+
+Source Page: https://xdaforums.com/t/aosp-9-0-2019-08-25-phh-treble.3831915/
+
 // Build The ROM, flash over to rooted Android device or use an emulator //
 
-make -j$(nproc)
+chmod +x build.sh build-rom.sh
+
+./build.sh
+
+./build-rom.sh
+
+All of the system and boot image files should be found in the device directory under /out/
 
 **UPDATE #6**: Both the AOSP and lineageOS repositories have been installed with minor errors with synchronizing some libraries. The next step is to fix the configuration errors under lineageOS when it comes to setting up a compatible Samsung Galaxy J4 directory under 'devices'. The best way to begin with this approach is to assign the <manufacturer> variable which in this case is 'samsung'
 
@@ -186,3 +202,5 @@ int main() {
 **UPDATE #10**: Despite all errors being fixed regarding the Makefiles, the lunch and build commands are not seemingly generating the system images that are needed, despite having the device tree files set in place. This might have to do with an error regarding the minimal AOSP build. The 'make -j4' function is seemingly supposed to generate the '/out' folder which includes the system.imng and boot.img files. These do not appear seemingly. Worst case scenario, a full AOSP build might be needed to make everything fully functional, as writing commands such as 'make help' aren't remotely able to showcase what's possible missing from the directory.
 
 **UPDATE #11**: According to a Telegram group chat responsible for jailbreaking the Samsung Galaxy J4, GSI (Generic System Image) ROMs are available to be compatible with the smartphone device. If the minimal AOSP build is not capable of building the ROM, I will most likely have to download a GSI ROM for a separate set of devices available via (https://developer.android.com/topic/generic-system-image), and simply edit its contents to eventually develop features that will make up of DiCentra ROM. Once the features are solidified, I will simply have to edit the contents of the 'device/j4lte' folder in order to make sure that the modified GSI ROM will be able to flash over to the emulator for further testing within LOWER END devices. Part of the challenge will be to make sure that the modified GSI ROM will be compliant with the settings of the Samsung Galaxy J4.
+
+**UPDATE #12**: After doing some searching, I discovered a forum that supported AOSP with GSI ROMs functioning under Android 9 Pie, which is the popular version of OS found in most Galaxy J4 devices if not for the earliest version, Android 8 Oreo. This XDA forum provides the ZIP file for the needed build files that would've inititally been replaced by the 'make -j$(nproc)' command. I have updated the steps above in order to correct build a compatible ROM under the TWRP-GalaxyJ4 kernel provided.
