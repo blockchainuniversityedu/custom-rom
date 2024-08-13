@@ -156,7 +156,7 @@ git checkout branch-name
 
 // Build final ROM //
 
-./build-rom.sh
+./build-rom.sh android-8.1 aosp 4
 
 All of the system and boot image files should be found in the device directory under /out/
 
