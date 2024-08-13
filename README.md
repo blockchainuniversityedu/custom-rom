@@ -94,7 +94,7 @@ Sidenote: Make sure that 'omni_j4lte-userdebug' and 'omni_j4lte-userdebug' are l
 
 lunch aosp_arm64-eng
 
-// Administering Makefiles // [OPTIONAL]
+// Correcting All Makefiles // **[OPTIONAL]**
 Sienote: Sometimes, Makefiles are not typically installed into the ~/aosp directory, so it would be best to cover some basic commands for this before executing the AOSP build. The commands are as follows (credit: https://askubuntu.com/questions/103348/error-when-installing-makefile-make-no-targets-specified-and-no-makefile):
 
 sudo apt install autoconf automake libpcre3-dev libnl-3-dev libsqlite3-dev libssl-dev ethtool build-essential g++ libnl-genl-3-dev libgcrypt20-dev libtool python3-distutils
@@ -137,7 +137,7 @@ git stash
 
 git checkout branch-name
 
-# If you want to apply the stashed changes later
+*If you want to apply the stashed changes later*
 
 git stash pop
 
