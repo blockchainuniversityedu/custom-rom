@@ -129,14 +129,7 @@ chmod +x build.sh build-rom.sh
 
 As the build is getting fetched and setup, there might be some checkout errors regarding specific kernels. To avoid this from getting in the way, you can discard the changes, commit them, or stash them. Here are the specific codes for the three.
 
-Option 1 (Commit Changes) --Recommended-- :
-
-git add .
-
-git commit -m "Commit message describing your changes"
-
-git checkout branch-name
-
+Option 1 (Commit Changes) *PLEASE REFER TO UPDATE 14 DOWN BELOW***-->**
 
 Option 2 (Stash Changes):
 
