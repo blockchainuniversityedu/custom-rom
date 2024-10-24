@@ -247,3 +247,12 @@ Sidenote: If there's too many missing branches, and you'd rather just commit eve
 
 repo forall -p -c 'git add . && git commit -m "Your commit message"'
 
+**UPDATE #15**: RE-CORRECTING MISSING BRANCHES
+
+In order to carefully install selected repositories, it's necessary to assign everything to a particular branch, otherwise there's an instance of the 'detached HEAD state' which means that a specific commit was selected for modification instead of the branch itself, deeming the installations unsuccessful. Here are the steps to fix that:
+
+git branch
+
+git checkout <branch_name>
+
+git status
