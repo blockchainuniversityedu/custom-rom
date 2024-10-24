@@ -256,3 +256,9 @@ git branch
 git checkout <branch_name>
 
 git status
+
+git add .
+
+git commit -m "Commit files"
+
+Problem: Despite repeating the same cycle of commands, the commits are still not being pushed for the assigned branch, even when git as well as other packages necessary for these functions have been installed.
